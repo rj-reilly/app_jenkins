@@ -5,7 +5,6 @@ pipeline {
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
-                git credentialsId: 'cf23352b-3581-4458-a665-fa4dc64f60a4', url: 'git@github.com:rj-reilly/app_jenkins.git'
             }
         }
         stage('Accept'){
