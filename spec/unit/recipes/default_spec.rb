@@ -13,6 +13,14 @@ describe 'app_jenkins::default' do
       runner.converge(described_recipe)
     end
 
+    it 'creates a directory[/appbin/jenkins/] with default action' do
+    	expect(chef_run).to create_directory('/appbin/jenkins') 
+    end
+
+    # it 'creates file[/appin/jenkins/jenkins.war' do
+    # 	expect(chef_run).to create_file('/appbin/jenkins/jenkins.war') 
+    # end
+
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end

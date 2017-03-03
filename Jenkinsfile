@@ -6,6 +6,7 @@ pipeline {
             steps { 
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
+                sh 'chef exec rspec --format documentation --color'
             }
         }
         stage('Accept'){
