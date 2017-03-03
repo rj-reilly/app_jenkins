@@ -1,7 +1,8 @@
 pipeline {
     agent any 
-
-    stages {
+    git poll: true, url: git@github.com:rj-reilly/app_jenkins.git
+    node {
+      stages {
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
@@ -65,4 +66,5 @@ pipeline {
             }
         }
     }
+}
 }
