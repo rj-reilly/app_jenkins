@@ -5,6 +5,7 @@ pipeline {
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
+                sh 'pwd;ls -al'
             }
         }
         stage('Accept'){
