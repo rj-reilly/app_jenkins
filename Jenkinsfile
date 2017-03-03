@@ -57,5 +57,10 @@ pipeline {
                 sh 'echo "Build IntestProd"'
             }
         }
+         stage('DestroyOldProd') {
+            steps {
+                sh 'echo "Destroy Old Prod"'
+            }
+        }
     }
 }
