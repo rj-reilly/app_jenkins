@@ -1,6 +1,5 @@
 pipeline {
     agent any   
-    node {
       stages {
       
         stage('Validate') { 
@@ -67,5 +66,4 @@ pipeline {
             }
         }
     }
-}
 }
