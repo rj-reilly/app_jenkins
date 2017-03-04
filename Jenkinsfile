@@ -1,7 +1,7 @@
 pipeline {
     agent any   
-    def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
     node {
+      def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
       stages {
         stage('Validate') { 
             steps { 
