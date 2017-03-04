@@ -1,7 +1,6 @@
 pipeline {
     agent any   
     def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
-    git poll: true, url: github.com:rj-reilly/app_jenkins.git
     node {
       stages {
         stage('Validate') { 
