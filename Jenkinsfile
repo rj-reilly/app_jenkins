@@ -1,5 +1,6 @@
 pipeline {
-    agent any 
+    agent any   
+    def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
     git poll: true, url: git@github.com:rj-reilly/app_jenkins.git
     node {
       stages {
@@ -8,6 +9,15 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
+                def uploadSpec = """{
+                    "files": [
+                        {
+                            "pattern": "*.*",
+                            "target": "app_jenkins/$BUILDID/"
+                        }
+                     ]
+                }"""
+server.upload(uploadSpec)
             }
         }
         stage('Accept'){
