@@ -1,12 +1,22 @@
 pipeline {
     agent any   
       stages {
-      
+      def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
+     
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
+                def uploadSpec = """{
+                    "files": [
+                        {
+                            "pattern": "*.*",
+                            "target": "app_jenkins/$BUILDID/"
+                        }
+                     ]
+                }"""
+                server.upload(uploadSpec)
                 
             }
         }
