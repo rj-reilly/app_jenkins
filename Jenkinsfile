@@ -1,8 +1,8 @@
 pipeline {
     agent any   
     node {
-      def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
       stages {
+       def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
@@ -16,7 +16,7 @@ pipeline {
                         }
                      ]
                 }"""
-server.upload(uploadSpec)
+                server.upload(uploadSpec)
             }
         }
         stage('Accept'){
