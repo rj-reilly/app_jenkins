@@ -23,9 +23,14 @@ pipeline {
                 sh 'echo "Build Dev"'
             }
         }
-         stage('IntestdDev') {
+         stage('AcceptanceDev') {
             steps {
-                sh 'echo "Build IntestDev"'
+                sh 'echo "Build AcceptanceDev"'
+            }
+        }
+        stage('ReleaseDev') {
+            steps {
+                sh 'echo "Release Dev"'
             }
         }
          stage('BuildQA') {
@@ -33,9 +38,14 @@ pipeline {
                 sh 'echo "Build QA"'
             }
         }
-         stage('IntestQA') {
+         stage('AcceptanceQA') {
             steps {
-                sh 'echo "Build IntestQA"'
+                sh 'echo "Build AcceptanceQA"'
+            }
+        }
+        stage('ReleaseQA') {
+            steps {
+                sh 'echo "Release QA"'
             }
         }
          stage('BuildUAT') {
@@ -43,9 +53,14 @@ pipeline {
                 sh 'echo "Build UAT"'
             }
         }
-         stage('IntestUAT') {
+         stage('AcceptanceUAT') {
             steps {
-                sh 'echo "Build IntestUAT"'
+                sh 'echo "Build AcceptanceUAT"'
+            }
+        }
+        stage('ReleaseUAT') {
+            steps {
+                sh 'echo "Release UAT"'
             }
         }
         stage('BuildProd') {
@@ -53,14 +68,14 @@ pipeline {
                 sh 'echo "Build Prod"'
             }
         }
-         stage('IntestProd') {
+         stage('AcceptanceProd') {
             steps {
-                sh 'echo "Build IntestProd"'
+                sh 'echo "Build AcceptanceProd"'
             }
         }
-         stage('DestroyOldProd') {
+        stage('ReleaseProd') {
             steps {
-                sh 'echo "Destroy Old Prod"'
+                sh 'echo "Release Prod"'
             }
         }
     }
