@@ -6,12 +6,12 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                ArtifactoryUpload
             }
         }
         stage('Accept'){
             steps {
                 sh 'echo Accept'
+                sh 'kitchen test'
             }
         }
         stage('Deliver') {
