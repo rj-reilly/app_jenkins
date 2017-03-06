@@ -1,15 +1,3 @@
-#!groovy
-                 def server = Artifactory.newServer url: 'http://localhost:8081/artifactory/', username: 'admin', password: 'AP2ChSxo2hgSLAbgc5QEAnDrjqr'
-
-                    def uploadSpec = """{
-                    "files": [
-                        {
-                            "pattern": "*.*",
-                            "target": "app_jenkins/$BUILDID/"
-                        }
-                     ]
-                }"""
-
 pipeline {
     agent any   
       stages {
@@ -18,6 +6,8 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
+                getArtifactoryServer
+                ArtifactoryUpload
             }
         }
         stage('Accept'){
