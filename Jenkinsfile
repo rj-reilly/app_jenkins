@@ -11,9 +11,7 @@ pipeline {
         }
         stage('Accept'){
             steps {
-                sh "echo Accept
-                export PATH=/opt/chefdk/bin:/opt/chefdk/embedded/bin:$PATH
-                kitchen test"       
+                sh "echo Accept;export PATH=/opt/chefdk/bin:/opt/chefdk/embedded/bin:$PATH;kitchen test"
             }
         }
         stage('Deliver') {
