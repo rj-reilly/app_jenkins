@@ -6,14 +6,15 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                artifactoryUpload('*.*','/app_jenkins',dev)
-
+                stash includes: 'cookbooks/*.*', name: 'app_jenkins'
 
             }
         }
         stage('Accept'){
             steps {
                 sh 'echo Accept'
+                unstash 'app_jenkins'
+                sh 'ls -al'
                 
             }
         }
