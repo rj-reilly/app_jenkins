@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                artifactoryUpload('*.*',app_jenkins,getArtifactoryServer('dev'))
+                artifactoryUpload('*.*')
 
             }
         }
