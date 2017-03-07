@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                sh "env.COOKBOOK_VERSION = grep -i version metadata.rb|awk '{print \$2}'|sed s/\'//g"
+                sh "env.COOKBOOK_VERSION = 0.1.0"
                 sh 'echo env.COOKBOOK_VERSION'
             }
         }
