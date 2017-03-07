@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                archiveArtifacts artifacts: '*.*', onlyIfSuccessful: true
+                artifactoryUpload('*.*','/app_jenkins',dev)
 
 
             }
