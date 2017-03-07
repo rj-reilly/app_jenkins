@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                stash includes: 'cookbooks/*.*', name: 'app_jenkins'
+                stash includes: '*.*', name: 'app_jenkins'
 
             }
         }
