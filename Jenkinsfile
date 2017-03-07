@@ -7,6 +7,8 @@ pipeline {
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
                 getArtifactoryServer 'dev'
+                artifactoryUpload '*.*'  '/app_jenkins'
+
             }
         }
         stage('Accept'){
