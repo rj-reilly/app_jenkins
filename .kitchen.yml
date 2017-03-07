@@ -9,7 +9,7 @@ provisioner:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
 
-# verifier:
+verifier:
   name: inspec
 
 platforms:
