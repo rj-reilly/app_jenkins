@@ -6,8 +6,7 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                env.COOKBOOK_VERSION = "0.1.0"
-                sh 'echo env.COOKBOOK_VERSION'
+           
             }
         }
         stage('Accept'){
