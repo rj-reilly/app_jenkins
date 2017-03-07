@@ -12,7 +12,10 @@ unless os.windows?
   end
 end
 
-describe port(80) do
-  it { should_not be_listening }
-  skip 'This is an example test, replace with your own test.'
+# describe port(80) do
+#   it { should_not be_listening }
+#   skip 'This is an example test, replace with your own test.'
+# end
+describe directory('/appbin/jenkins') do
+  it { should exist}
 end

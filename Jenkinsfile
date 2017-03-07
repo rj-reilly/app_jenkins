@@ -6,15 +6,16 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                stash includes: '*.*', name: 'app_jenkins'
 
             }
         }
         stage('Accept'){
             steps {
-                sh 'echo Accept'
-                unstash 'app_jenkins'
-                sh 'ls -al'
+                sh 'echo Accept
+                    export PATH=/opt/chefdk/bin:/opt/chefdk/embedded/bin:$PATH
+                    kitchen test'
+
+     
                 
             }
         }
