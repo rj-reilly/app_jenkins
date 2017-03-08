@@ -8,6 +8,9 @@ pipeline {
                 sh 'chef exec rspec --format documentation --color'
                 sh "book.version = grep -i version metadata.rb|awk '{print \$2}'|sed s/'//g"
                 sh 'echo book.version'
+                node {
+                sh 'echo innode'
+                }
             }
         }
         stage('Accept'){
