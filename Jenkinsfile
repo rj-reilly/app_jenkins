@@ -1,4 +1,6 @@
-node {
+pipeline {
+    agent any   
+      stages {
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
@@ -82,4 +84,4 @@ node {
             }
         }
     }
-
+}
