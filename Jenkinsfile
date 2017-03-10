@@ -6,7 +6,6 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                sh "book.version = grep -i version metadata.rb|awk '{print \$2}'|sed s/'//g"
                 sh 'echo book.version'
                 node(master) {
                 sh 'echo innode'
