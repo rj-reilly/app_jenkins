@@ -1,5 +1,4 @@
-node { 
-      stages {
+node {
         stage('Validate') { 
             steps { 
                 sh 'echo Validate' 
@@ -83,4 +82,4 @@ node {
             }
         }
     }
-}
+
