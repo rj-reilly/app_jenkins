@@ -25,6 +25,7 @@ pipeline {
          stage('BuildDev') {
             steps {
                 sh 'echo "Build Dev"'
+                sh 'chef-client -z vagrant_linux.rb simple.rb -E dev'
             }
         }
          stage('AcceptanceDev') {
