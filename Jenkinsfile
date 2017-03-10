@@ -6,10 +6,6 @@ pipeline {
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
                 sh 'chef exec rspec --format documentation --color'
-                sh 'echo book.version'
-                node(master) {
-                sh 'echo innode'
-                }
             }
         }
         stage('Accept'){
