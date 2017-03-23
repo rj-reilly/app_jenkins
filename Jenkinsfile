@@ -16,13 +16,13 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh 'echo Deliver'
-                sh 'knife cookbook upload app_jenkins'
+                
             }
         }
          stage('BuildDev') {
             steps {
                 sh 'echo "Build Dev"'
-                sh 'export CHEF_DRIVER=vagran;export VAGRANT_DEFAULT_PROVIDER=virtualbox'
+                sh 'export CHEF_DRIVER=vagrant;export VAGRANT_DEFAULT_PROVIDER=virtualbox'
                 sh 'chef-client -z vagrant_linux.rb build_dev.rb'
             }
         }
