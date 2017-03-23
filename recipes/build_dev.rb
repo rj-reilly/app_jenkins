@@ -32,15 +32,8 @@
 #     :paranoid => false,
 #   }
 # }
-options = {
-  vagrant_config: "config.vm.provider \"virtualbox\" do |vb|\n  vb.memory = 1024\nend\n",
-  vagrant_options: {
-    'vm.box' => 'precise64'
-  }
-}
 
 machine "test22" do
-  machine_options options
   action :converge
   run_list ['app_jenkins::default']
 end
