@@ -33,7 +33,7 @@
 #   }
 # }
 options = {
-  vagrant_config: "config.vm.provider \"virtualbox\" do |vb|\n  vb.memory = 1536\nend\n",
+  vagrant_config: "config.vm.provider \"virtualbox\" do |vb|\n  vb.memory = 1024\nend\n",
   vagrant_options: {
     'vm.box' => 'precise64'
   }
