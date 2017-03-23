@@ -3,7 +3,8 @@
 #   compile_time true
 # end
 
-# require 'chef/provisioning/vsphere_driver'
+#require 'chef/provisioning/vsphere_driver'
+
 
 # with_vsphere_driver host: '192.168.1.4',
 #   insecure: true,
@@ -14,24 +15,33 @@
 #   use_linked_clone: true,
 #   num_cpus: 2,
 #   memory_mb: 4096,
-#   network_name: ["VMNetwork"],
+#   network_name: ["VM Network"],
 #   datacenter: 'redding',
 #   resource_pool: 'Prod',
-#   template_name: 'path to template',
+#   template_folder: 'Templates',
+#   template_name: 'ubuntu1604',
 #   customization_spec: {
 #     ipsettings: {
-#       dnsServerList: ['1.2.3.31','1.2.3.41']
+#       dnsServerList: ['192.168.1.1']
 #     },
 #     :domain => 'local'
-#   }
+#   },
 #   :ssh => {
 #     :user => 'root',
-#     :password => 'password',
+#     :password => 'then0mad',
 #     :paranoid => false,
 #   }
 # }
-require 'chef/provisioning'
+options = {
+  vagrant_config: "config.vm.provider \"virtualbox\" do |vb|\n  vb.memory = 1536\nend\n",
+  vagrant_options: {
+    'vm.box' => 'precise64'
+  }
+}
 
-machine "Jenkins" do
+machine "test22" do
+  machine_options options
+  action :converge
   run_list ['app_jenkins::default']
 end
+  
