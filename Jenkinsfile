@@ -5,7 +5,7 @@ pipeline {
             steps { 
                 sh 'echo Validate' 
                 sh 'pwd;ls -al'
-                sh 'chef exec rspec --format documentation --color'
+                sh 'chef exec rspec -fd --color'
             }
         }
         stage('Accept'){
@@ -16,12 +16,13 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh 'echo Deliver'
+                sh 'knife cookbook upload app_jenkins'
             }
         }
          stage('BuildDev') {
             steps {
                 sh 'echo "Build Dev"'
-                sh 'cd recipes;chef-client -z vagrant_linux.rb simple.rb -E dev'
+                sh 'chef-client -z vagrant_linux.rb build_dev.rb'
             }
         }
          stage('AcceptanceDev') {
