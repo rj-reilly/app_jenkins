@@ -22,6 +22,7 @@ pipeline {
          stage('BuildDev') {
             steps {
                 sh 'echo "Build Dev"'
+                sh 'export CHEF_DRIVER=vagran;export VAGRANT_DEFAULT_PROVIDER=virtualbox'
                 sh 'chef-client -z vagrant_linux.rb build_dev.rb'
             }
         }
